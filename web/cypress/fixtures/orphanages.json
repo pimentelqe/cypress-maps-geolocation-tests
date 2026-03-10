@@ -1,0 +1,28 @@
+{
+  "create": {
+    "name": "Lar Esperança",
+    "description": "Orfanato dedicado ao acolhimento de crianças em situação de vulnerabilidade, oferecendo educação, alimentação e atividades recreativas.",
+    "opening_hours": "Segunda a Sexta das 08:00 às 18:00",
+    "open_on_weekends": "Não"
+  },
+  "create2": {
+    "name": "Casa do Sorriso",
+    "description": "Instituição que cuida de crianças e adolescentes, promovendo desenvolvimento social, apoio psicológico e atividades culturais.",
+    "opening_hours": "Todos os dias das 09:00 às 17:00"
+  },
+  "create3": {
+    "name": "Pequenos Sonhos",
+    "description": "Orfanato focado em proporcionar um ambiente seguro e acolhedor para crianças, incentivando educação e convivência saudável.",
+    "opening_hours": "Segunda a Sábado das 08:00 às 16:00"
+  },
+  "create4": {
+    "name": "Lar Caminho da Luz",
+    "description": "Organização que oferece abrigo temporário para crianças, com apoio educacional e atividades esportivas.",
+    "opening_hours": "Segunda a Sexta das 07:30 às 17:30"
+  },
+  "create5": {
+    "name": "Casa Nova Vida",
+    "description": "Espaço de acolhimento que busca oferecer cuidado, proteção e oportunidades para crianças construírem um futuro melhor.",
+    "opening_hours": "Todos os dias das 08:00 às 18:00"
+  }
+}
