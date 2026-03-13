@@ -1,5 +1,5 @@
 import data from '../fixtures/orphanages.json'
-import { faker } from '@faker-js/faker'
+//import { faker } from '@faker-js/faker'
 
 describe('cadastro de orfanatos', () => {
 
@@ -7,16 +7,17 @@ describe('cadastro de orfanatos', () => {
 
         cy.visitWithMockGeolocation('http://localhost:3001/orphanages/create')
         const orphanage = data.create
+        cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
 
         cy.get('legend')
             .should('be.visible')
             .should('have.text', 'Cadastro')
-        cy.wait(5000)
+        
         cy.setMapPosition(orphanage.position)
 
         cy.get('[name="name"]')
             //.should('be.visible')
-            .type(orphanage.name + ' ' + faker.company.name())
+            .type(orphanage.name)
 
         cy.get('[name="description"]')
             .should('be.visible')

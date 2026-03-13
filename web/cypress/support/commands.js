@@ -47,3 +47,12 @@ Cypress.Commands.add('setMapPosition', (position) => {
     window.localStorage.setItem('hope-qa:latitude', position.latitude);
     window.localStorage.setItem('hope-qa:longitude', position.longitude);
 })
+
+/*Cypress.Commands.add('deleteMany', (filter, options) => {
+  // Ajuste a URL conforme sua API de testes
+  const apiUrl = cy.env('API_URL') || 'http://localhost:3333'
+  cy.request('POST', `${apiUrl}/test-utils/delete-many`, {
+    filter,
+    collection: options.collection
+  })
+})*/
