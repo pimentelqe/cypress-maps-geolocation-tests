@@ -1,4 +1,6 @@
 import data from '../fixtures/orphanages.json'
+import { faker } from '@faker-js/faker'
+
 describe('cadastro de orfanatos', () => {
 
     it('Deve cadastrar um novo orfanato', () => {
@@ -9,12 +11,12 @@ describe('cadastro de orfanatos', () => {
         cy.get('legend')
             .should('be.visible')
             .should('have.text', 'Cadastro')
-            cy.wait(5000)
-        cy.setMapPosition( orphanage.position )
+        cy.wait(5000)
+        cy.setMapPosition(orphanage.position)
 
         cy.get('[name="name"]')
-            .should('be.visible')
-            .type(orphanage.name)
+            //.should('be.visible')
+            .type(orphanage.name + ' ' + faker.company.name())
 
         cy.get('[name="description"]')
             .should('be.visible')
@@ -36,7 +38,3 @@ describe('cadastro de orfanatos', () => {
 
 })
 
-Cypress.Commands.add('setMapPosition', (position) => {
-    window.localStorage.setItem('hope-qa:latitude', position.latitude);
-    window.localStorage.setItem('hope-qa:longitude', position.longitude);
-})

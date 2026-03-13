@@ -41,5 +41,9 @@ Cypress.Commands.add('visitWithMockGeolocation', (url, latitude = -19.2272708, l
 
     }
   })
+})
 
+Cypress.Commands.add('setMapPosition', (position) => {
+    window.localStorage.setItem('hope-qa:latitude', position.latitude);
+    window.localStorage.setItem('hope-qa:longitude', position.longitude);
 })
