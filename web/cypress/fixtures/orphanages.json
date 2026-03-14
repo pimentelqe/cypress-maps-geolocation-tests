@@ -9,10 +9,11 @@
             "longitude": -45.00911951065064
         }
     },
-    "create2": {
+    "duplicate": {
         "name": "Casa do Sorriso",
         "description": "Instituição que cuida de crianças e adolescentes, promovendo desenvolvimento social, apoio psicológico e atividades culturais.",
         "opening_hours": "Todos os dias das 09:00 às 17:00",
+        "open_on_weekends": "Sim",
        "position": {
         "latitude": -19.22293451734821,
         "longitude": -45.00354289124567
