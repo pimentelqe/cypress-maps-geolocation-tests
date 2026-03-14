@@ -1,97 +1,58 @@
 import data from '../fixtures/orphanages.json'
-//import { faker } from '@faker-js/faker'
+import createPage from '../support/pages/create'
+import mapPage from '../support/pages/map'
 
 describe('cadastro de orfanatos', () => {
 
     it('Deve cadastrar um novo orfanato', () => {
 
-        cy.visitWithMockGeolocation('http://localhost:3001/orphanages/create')
         const orphanage = data.create
         cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
-
-        cy.get('legend')
-            .should('be.visible')
-            .should('have.text', 'Cadastro')
-
+        // create page go
+        createPage.go()
+        // set map position
         cy.setMapPosition(orphanage.position)
-
-        cy.get('[name="name"]')
-            //.should('be.visible')
-            .type(orphanage.name)
-
-        cy.get('[name="description"]')
-            .should('be.visible')
-            .type(orphanage.description)
-
-        cy.get('input[type="file"]')
-            .selectFile('cypress/fixtures/images/kids-playground-1.png', { force: true })
-
-        cy.get('[name="opening_hours"]')
-            .should('be.visible')
-            .type(orphanage.opening_hours)
-
-        cy.contains('button', orphanage.open_on_weekends).click()
-        cy.get('.save-button').click()
-
+        // create page form
+        createPage.form(orphanage)
+        // submit form
+        createPage.submit() 
+        // validação de sucesso
         cy.get('.swal2-success-circular-line-left')
             .should('be.visible')
 
-
+        mapPage.popup.haveText('Orfanato cadastrado com sucesso.')
 
     })
-it('Não deve cadastrar um novo orfanato quando o nome for duplicado', () => {
+    it('Não deve cadastrar um novo orfanato quando o nome for duplicado', () => {
 
-    const orphanage = data.duplicate
+        const orphanage = data.duplicate
 
-    // limpa base antes do teste
-    cy.deleteMany(
-      { name: orphanage.name },
-      { collection: 'orphanages' }
-    )
+        // limpa base antes do teste
+        cy.deleteMany(
+            { name: orphanage.name },
+            { collection: 'orphanages' }
+        )
 
-    // -------------------------
-    // PRIMEIRO CADASTRO (SUCESSO)
-    // -------------------------
-    cy.postOrphanage(orphanage)
+        // -------------------------
+        // PRIMEIRO CADASTRO (SUCESSO)
+        // -------------------------
+        cy.postOrphanage(orphanage)
 
-    // -------------------------sss
-    // SEGUNDO CADASTRO (ERRO)
-    // -------------------------s
-    cy.visitWithMockGeolocation('http://localhost:3001/orphanages/create')
+        // -------------------------sss
+        // SEGUNDO CADASTRO (ERRO)
+        // -------------------------s
+         createPage.go()
+        // set map position
+        cy.setMapPosition(orphanage.position)
+        // create page form
+        createPage.form(orphanage)
+        // submit form
+        createPage.submit() 
+        // valida erro de duplicidade
+        cy.get('.swal2-icon-content')
+            .should('be.visible')
 
-    cy.get('legend')
-      .should('be.visible')
-      .should('have.text', 'Cadastro')
+            createPage.popup.haveText('Já existe um cadastro com o nome: ' + orphanage.name)     
 
-    cy.setMapPosition(orphanage.position)
-
-    cy.get('[name="name"]')
-      .should('be.visible')
-      .type(orphanage.name)
-
-    cy.get('[name="description"]')
-      .should('be.visible')
-      .type(orphanage.description)
-
-    cy.get('input[type="file"]')
-      .selectFile(
-        'cypress/fixtures/images/kids-playground-1.png',
-        { force: true }
-      )
-
-    cy.get('[name="opening_hours"]')
-      .should('be.visible')
-      .type(orphanage.opening_hours)
-
-    cy.contains('button', orphanage.open_on_weekends)
-      .click()
-
-    cy.get('.save-button')
-      .click()
-
-    // valida erro de duplicidade
-    cy.get('.swal2-icon-content')
-      .should('be.visible')
-
-  })
+    })
 })
