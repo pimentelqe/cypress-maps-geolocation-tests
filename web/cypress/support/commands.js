@@ -49,22 +49,29 @@ Cypress.Commands.add('setMapPosition', (position) => {
 })
 
 Cypress.Commands.add('postOrphanage', (orphanage) => {
-    const formdData = new FormData();
-    formdData.append('name', orphanage.name);
-    formdData.append('description', orphanage.description);
-    formdData.append('latitude', orphanage.position.latitude);
-    formdData.append('longitude', orphanage.position.longitude);
-    formdData.append('opening_hours', orphanage.opening_hours);
-    formdData.append('open_on_weekends', true);
 
-    cy.request({
-        url: 'http://localhost:3333/orphanages',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        },
-        body: formdData
-    }).then(response =>{
-        expect(response.status).to.eq(201)
-    })
+    cy.fixture('images/' + orphanage.image, 'binary')
+        .then((image) => Cypress.Blob.binaryStringToBlob(image, 'image/png'))
+        .then((blob) => {
+            const formdData = new FormData();
+            formdData.append('name', orphanage.name);
+            formdData.append('description', orphanage.description);
+            formdData.append('latitude', orphanage.position.latitude);
+            formdData.append('longitude', orphanage.position.longitude);
+            formdData.append('opening_hours', orphanage.opening_hours);
+            formdData.append('open_on_weekends', true);
+            formdData.append('images', blob, orphanage.image);
+
+
+            cy.request({
+                url: 'http://localhost:3333/orphanages',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                body: formdData
+            }).then(response => {
+                expect(response.status).to.eq(201)
+            })
+        })
 })

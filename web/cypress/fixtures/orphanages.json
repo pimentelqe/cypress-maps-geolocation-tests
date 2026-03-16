@@ -7,7 +7,8 @@
         "position": {
             "latitude": -19.231539970526367,
             "longitude": -45.00911951065064
-        }
+        },
+        "image" : "kids-playground-1.png"
     },
     "duplicate": {
         "name": "Casa do Sorriso",
@@ -17,7 +18,8 @@
        "position": {
         "latitude": -19.22293451734821,
         "longitude": -45.00354289124567
-      }
+      },
+      "image" : "kids-playground-5.png"
     },
     "create3": {
         "name": "Pequenos Sonhos",
