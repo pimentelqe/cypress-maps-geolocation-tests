@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('visitWithMockGeolocation', (url, latitude = -19.2272708, longitude = -45.0129244) => {
+Cypress.Commands.add('goto', (url, latitude = -19.2272708, longitude = -45.0129244) => {
 
     cy.visit(url, {
         onBeforeLoad(win) {

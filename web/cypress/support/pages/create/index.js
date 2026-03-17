@@ -7,7 +7,7 @@ class CreatePage {
 
     }
     go() {
- cy.visitWithMockGeolocation('http://localhost:3001/orphanages/create')
+ cy.goto('http://localhost:3001/orphanages/create')
   cy.get('legend')
             .should('be.visible')
             .should('have.text', 'Cadastro')
