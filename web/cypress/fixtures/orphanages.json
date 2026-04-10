@@ -5,8 +5,8 @@
         "opening_hours": "Segunda a Sexta das 08:00 às 18:00",
         "open_on_weekends": "Não",
         "position": {
-            "latitude": -19.231539970526367,
-            "longitude": -45.00911951065064
+            "latitude": -19.216992480675056,
+            "longitude": -44.99821901321412
         },
         "image" : "kids-playground-1.png"
     },
@@ -16,8 +16,8 @@
         "opening_hours": "Todos os dias das 09:00 às 17:00",
         "open_on_weekends": "Sim",
        "position": {
-        "latitude": -19.22293451734821,
-        "longitude": -45.00354289124567
+        "latitude": -19.20861933109705,
+        "longitude": -45.012171153574016
       },
       "image" : "kids-playground-5.png"
     },
@@ -26,8 +26,8 @@
         "description": "Orfanato focado em proporcionar um ambiente seguro e acolhedor para crianças, incentivando educação e convivência saudável.",
         "opening_hours": "Segunda a Sábado das 08:00 às 16:00",
         "position": {
-        "latitude": -19.22187364190542,
-        "longitude": -45.00387120599213
+        "latitude": -19.227496047785998,
+        "longitude": -45.005821828459425
       },
          "image" : "kids-playground-2.png"
     },

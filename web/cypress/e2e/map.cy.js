@@ -3,10 +3,10 @@ import data from '../fixtures/orphanages.json'
 describe('map', () => {
     it('Deve poder escolher um orfanato no mapa', () => {
         const orphanage = data.map
-
+        cy.viewport(1280, 720)
         cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
         cy.postOrphanage(orphanage)
-        cy.goto('http://localhost:3001/map')
+        cy.goto('http://localhost:3000/map')
 
         cy.get('.leaflet-marker-icon').as('mapLis')
 

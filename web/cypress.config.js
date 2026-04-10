@@ -18,7 +18,7 @@ module.exports = defineConfig({
         uri: 'mongodb+srv://qax:xperience@cluster0.qxgqxtl.mongodb.net/HopeDB?appName=Cluster0',
         database: 'HopeDB',
       },
-      API_URL: 'http://localhost:3333' // Adicionando variável de ambiente para API
+      API_URL: 'http://localhost:3334' // Adicionando variável de ambiente para API
     },
 
   },

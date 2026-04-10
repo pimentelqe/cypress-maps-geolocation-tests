@@ -42,13 +42,13 @@ export default function Orphanage() {
 
       <main>
         <div className="orphanage-details">
-          <img src={`http://localhost:3333/uploads/${orphanage.images[activeImageIndex].file_name}`} alt={orphanage.name} />
+          <img src={`http://localhost:3334/uploads/${orphanage.images[activeImageIndex].file_name}`} alt={orphanage.name} />
 
           <div className="images">
             {orphanage.images.map((image, index) => (<button key={image._id} className={activeImageIndex === index ? 'active' : ''} type="button" onClick={() => {
               setActiveImageIndex(index);
             }}>
-              <img src={`http://localhost:3333/uploads/${image.file_name}`} alt={orphanage.name} />
+              <img src={`http://localhost:3334/uploads/${image.file_name}`} alt={orphanage.name} />
             </button>))}
           </div>
 

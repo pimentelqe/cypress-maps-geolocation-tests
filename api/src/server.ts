@@ -23,6 +23,6 @@ app.use(routes);
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 app.use(errorHandler);
 
-app.listen(3333, () => {
-    console.log('Hope API online na porta 3333 o/')
+app.listen(3334, () => {
+    console.log('Hope API online na porta 3334 o/')
 });
